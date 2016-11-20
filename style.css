@@ -5,6 +5,10 @@ body {
     padding: 1%;
 }
 
+a {
+    color: yellow;
+}
+
 table {
     width: 50%;
     border-collapse: collapse;
@@ -27,6 +31,12 @@ form input {
     width: 50%;
 }
 
-form input[type="checkbox"]{
-    width: 10%;
+.btn {
+    border: 1px solid yellow;
+    padding: 1%;
+    margin: 1%;
+    text-decoration: none;
+    background-color: yellow;
+    color: #333;
+    display: inline-block;
 }
