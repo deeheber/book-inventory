@@ -1,6 +1,6 @@
 <?php 
     include("connect.php");
-    $books = mysqli_query($mysqli, "SELECT * FROM books ORDER BY id DESC");
+    $result = mysqli_query($mysqli, "SELECT * FROM books ORDER BY id DESC");
 ?>
 <html lang="en">
     <head>
@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     <?php 
-                    while($row = mysqli_fetch_array($books)) { 		
+                    while($row = mysqli_fetch_array($result)) { 		
                         echo "<tr>";
                         echo "<td>".$row['title']."</td>";
                         echo "<td>".$row['author']."</td>";

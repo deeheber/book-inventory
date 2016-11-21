@@ -1,6 +1,35 @@
 <?php
     include("connect.php");
 ?>
+<?php 
+    if(isset($_POST['Submit'])) {	
+        $title = $_POST['title'];
+        $author = $_POST['author'];
+        $year = $_POST['year'];
+            
+        // form validation --- no empty fields
+        if(empty($title) || empty($author) || empty($year)) {
+                    
+            if(empty($title)) {
+                echo "<p style='color:#FFC107;'>Title is required</p>";
+            }
+            
+            if(empty($author)) {
+                echo "<p style='color:#FFC107;'>Author is required</p>";
+            }
+            
+            if(empty($year)) {
+                echo "<p style='color:#FFC107'>Year is required</p>";
+            }
+            
+        } else { 
+
+            $result = mysqli_query($mysqli, "INSERT INTO books(title, author, year) VALUES('$title','$author','$year')");
+            
+            echo "<p style='color:lime;'>Book added successfully!</p>";
+        }
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,35 +57,6 @@
                     </br>
                 <button type="submit" name="Submit">Submit</button>
             </form>
-        <?php 
-        if(isset($_POST['Submit'])) {	
-            $title = $_POST['title'];
-            $author = $_POST['author'];
-            $year = $_POST['year'];
-                
-            // form validation --- no empty fields
-            if(empty($title) || empty($author) || empty($year)) {
-                        
-                if(empty($title)) {
-                    echo "<font color='#FFC107'>Title is required</font><br/>";
-                }
-                
-                if(empty($author)) {
-                    echo "<font color='#FFC107'>Author is required</font><br/>";
-                }
-                
-                if(empty($year)) {
-                    echo "<font color='#FFC107'>Year is required</font><br/>";
-                }
-                
-            } else { 
-
-                $result = mysqli_query($mysqli, "INSERT INTO books(title, author, year) VALUES('$title','$author','$year')");
-                
-                echo "<font color='lime'>Book added successfully!";
-            }
-        } 
-        ?>
         <p><a href="index.php">View Books</a></p>
         </div>
     </body>
