@@ -9,15 +9,15 @@
             
         if(empty($title) || empty($author) || empty($year)) {
             if(empty($title)) {
-                echo "<p style='color:#FFC107;'>Title is required</p>";
+                $noTitle = true;
             }
 
             if(empty($author)) {
-                echo "<p style='color:#FFC107;'>Author is required</p>";
+                $noAuthor = true;
             }
 
             if(empty($year)) {
-                echo "<p style='color:#FFC107;'>Year is required</p>";
+                $noYear = true;
             }
             
         } else { 
@@ -66,7 +66,11 @@
                 <input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
                 <button type="submit" name="update" value="Update">Submit</button>
             </form>
-        <p><a href="index.php">View Books</a></p>
+            <!--Error messages for empty fields-->
+                <?php if($noTitle){echo "<p style='color:#FFC107;'>Title is required</p>";} ?>
+                <?php if($noAuthor){echo "<p style='color:#FFC107;'>Author is required</p>";} ?>
+                <?php if($noYear){echo "<p style='color:#FFC107;'>Year is required</p>";} ?>
+            <p><a href="index.php">View Books</a></p>
         </div>
     </body>
 </html>
