@@ -23,8 +23,7 @@
         } else { 
 
             $result = mysqli_query($mysqli, "UPDATE books SET title='$title',author='$author',year='$year' WHERE id=$id");
-            echo "<p style='color:lime'>Data successfully updated!</p>";
-            // figure out a way to redirect this to the index.php page on successful submit
+            // redirect to index on successful update
             header("Location: index.php");
         }
     } 
@@ -41,11 +40,9 @@
         $year = $res['year'];
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <title>Edit Book</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style.css" rel="stylesheet">
     </head>
@@ -67,7 +64,7 @@
                 <input type="number" name="year" value="<?php echo "$year"; ?>"/>
                     </br>
                 <input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
-                <button type="submit" name="update" value="update">Submit</button>
+                <button type="submit" name="update" value="Update">Submit</button>
             </form>
         <p><a href="index.php">View Books</a></p>
         </div>
