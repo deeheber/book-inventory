@@ -1,6 +1,6 @@
 <?php 
     include("connect.php");
-    $data = mysqli_query($mysqli, "SELECT * FROM books ORDER BY id DESC");
+    $books = mysqli_query($mysqli, "SELECT * FROM books ORDER BY id DESC");
 ?>
 <html lang="en">
     <head>
@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1>Book Inventory</h1>
-        <h2><a href="add.html">Add new book</a></h2>
+        <p><a href="add.php">Add new book</a></p>
         <div>
             <table>
                 <thead>
@@ -21,13 +21,13 @@
                 </thead>
                 <tbody>
                     <?php 
-                    while($result = mysqli_fetch_array($data)) { 		
+                    while($row = mysqli_fetch_array($books)) { 		
                         echo "<tr>";
-                        echo "<td>".$result['title']."</td>";
-                        echo "<td>".$result['author']."</td>";
-                        echo "<td>".$result['year']."</td>";	
-                        echo "<td><a class=\"btn\" href=\"#\">Edit</a> ";
-                        echo "<a class=\"btn\" href=\"#\">Delete</a></td>";
+                        echo "<td>".$row['title']."</td>";
+                        echo "<td>".$row['author']."</td>";
+                        echo "<td>".$row['year']."</td>";	
+                        echo "<td><a href=\"#\"> Edit </a></td>";
+                        echo "<td><a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete this book?')\">Delete</a></td>";
                     }
                     ?>
                 </tbody>
