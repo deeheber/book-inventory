@@ -26,7 +26,7 @@
                         echo "<td>".$row['title']."</td>";
                         echo "<td>".$row['author']."</td>";
                         echo "<td>".$row['year']."</td>";	
-                        echo "<td><a href=\"#\"> Edit </a></td>";
+                        echo "<td><a href=\"edit.php?id=$row[id]\"> Edit </a></td>";
                         echo "<td><a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete this book?')\">Delete</a></td>";
                     }
                     ?>
