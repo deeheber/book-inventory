@@ -10,21 +10,21 @@
         <h1>Book Inventory</h1>
         <h2><a href="index.php">Back to home</a></h2>
         <div>
-            <form>
+            <form method="post" action="add.php" name="form1">
                 <h2>Add New Book</h2>
                 Title
                 </br>
-                <input />
+                <input type="text" name="title"/>
                 </br>
                 Author
                 </br>
-                <input />
+                <input type="text" name="author"/>
                 </br>
                 Year
                 </br>
-                <input type="number"/>
+                <input type="number" name="year"/>
                 </br>
-                <button>Submit</button>
+                <button type="submit" name="Submit" value="Add">Submit</button>
             </form>
         </div>
     </body>
