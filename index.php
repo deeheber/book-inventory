@@ -5,7 +5,7 @@
         $result = $db->query("SELECT * FROM books ORDER BY id DESC");
         // echo "retrieved results";
     } catch (Exception $e) {
-        echo "Unable to retrieve results";
+        echo "Unable to retrieve books, error in db.";
         exit;
     }
 
@@ -35,7 +35,7 @@
                         echo "<td>".$row['title']."</td>";
                         echo "<td>".$row['author']."</td>";
                         echo "<td>".$row['year']."</td>";	
-                        echo "<td><a class=\"btn\" href=\"#\">Edit</a> ";
+                        echo "<td><a class=\"btn\" href=\"edit.php?id=$row[id]\"> Edit </a></td>";
                         echo "<td><a class=\"btn\" href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete this book?')\">Delete</a></td>";
                     }
                     ?>
