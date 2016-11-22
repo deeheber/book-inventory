@@ -20,7 +20,7 @@
     </head>
     <body>
         <h1>Book Inventory</h1>
-        <h2><a href="add.html">Add new book</a></h2>
+        <h2><a href="add.php">Add new book</a></h2>
         <div>
             <table>
                 <thead>
