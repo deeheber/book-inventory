@@ -36,7 +36,7 @@
                         echo "<td>".$row['author']."</td>";
                         echo "<td>".$row['year']."</td>";	
                         echo "<td><a class=\"btn\" href=\"#\">Edit</a> ";
-                        echo "<a class=\"btn\" href=\"#\">Delete</a></td>";
+                        echo "<td><a class=\"btn\" href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete this book?')\">Delete</a></td>";
                     }
                     ?>
                 </tbody>
