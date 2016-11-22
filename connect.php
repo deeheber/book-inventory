@@ -9,4 +9,4 @@ try {
     exit;
 }
 
-echo "Connected to the database";
+// echo "Connected to the database";

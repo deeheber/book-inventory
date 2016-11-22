@@ -1,6 +1,15 @@
 <?php 
     include("connect.php");
-    $data = mysqli_query($mysqli, "SELECT * FROM books ORDER BY id DESC");
+
+    try {
+        $result = $db->query("SELECT * FROM books ORDER BY id DESC");
+        // echo "retrieved results";
+    } catch (Exception $e) {
+        echo "Unable to retrieve results";
+        exit;
+    }
+
+// var_dump($results->fetchAll(PDO::FETCH_ASSOC));
 ?>
 <html lang="en">
     <head>
@@ -20,12 +29,12 @@
                     <th>Year</th>
                 </thead>
                 <tbody>
-                    <?php 
-                    while($result = mysqli_fetch_array($data)) { 		
+                    <?php 	
+                    while($row = $result->fetch(PDO::FETCH_ASSOC)) { 		
                         echo "<tr>";
-                        echo "<td>".$result['title']."</td>";
-                        echo "<td>".$result['author']."</td>";
-                        echo "<td>".$result['year']."</td>";	
+                        echo "<td>".$row['title']."</td>";
+                        echo "<td>".$row['author']."</td>";
+                        echo "<td>".$row['year']."</td>";	
                         echo "<td><a class=\"btn\" href=\"#\">Edit</a> ";
                         echo "<a class=\"btn\" href=\"#\">Delete</a></td>";
                     }
