@@ -1,7 +1,9 @@
 # Book inventory app
 
 ## Summary
-This is a simple [PHP](http://www.php.net/) application that tracks and stores information about books in a [MySQL](http://www.mysql.com/) database.
+This is a simple [PHP](http://www.php.net/) application that tracks and stores information about books in a [SQLite](https://sqlite.org/) database.
+
+If your prefer [MySQL](https://www.mysql.com/), checkout [this](https://github.com/deeheber/book-inventory/tree/MySQLi) branch.
 
 ## Features
 - Read and display all books in the database
