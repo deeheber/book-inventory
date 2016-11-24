@@ -1,4 +1,8 @@
 <?php
+    $databaseHost = 'localhost';
+    $databaseName = 'test';
+    $databaseUsername = 'root';
+    $databasePassword = 'root';
 
 try {
     $db = new PDO("sqlite:".__DIR__."/test.db");

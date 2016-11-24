@@ -28,7 +28,6 @@
                 echo "Unable to update book, error in db.";
                 exit;
             }
-       
             // redirect to index on successful update
             header("Location: index.php");
         }

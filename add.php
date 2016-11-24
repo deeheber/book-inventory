@@ -56,7 +56,6 @@
                 echo "Unable to add book, error in the db.";
                 exit;
             }
-
         }
     } 
 ?>

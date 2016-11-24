@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-
+    
     try {
         $id = $_GET['id'];
         $result = $db->query("DELETE FROM books WHERE id=$id");

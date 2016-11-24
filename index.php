@@ -11,10 +11,9 @@
 
 // var_dump($results->fetchAll(PDO::FETCH_ASSOC));
 ?>
-<html lang="en">
+<html>
     <head>
         <title>Book Inventory</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style.css" rel="stylesheet">
     </head>
@@ -29,16 +28,17 @@
                     <th>Year</th>
                 </thead>
                 <tbody>
-                    <?php 	
-                    while($row = $result->fetch(PDO::FETCH_ASSOC)) { 		
-                        echo "<tr>";
-                        echo "<td>".$row['title']."</td>";
-                        echo "<td>".$row['author']."</td>";
-                        echo "<td>".$row['year']."</td>";	
-                        echo "<td><a href=\"edit.php?id=$row[id]\"> Edit </a></td>";
-                        echo "<td><a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete this book?')\">Delete</a></td>";
-                    }
-                    ?>
+                <?php 	
+                while($row = $result->fetch(PDO::FETCH_ASSOC)) { 		
+
+                    echo "<tr>";
+                    echo "<td>".$row['title']."</td>";
+                    echo "<td>".$row['author']."</td>";
+                    echo "<td>".$row['year']."</td>";	
+                    echo "<td><a href=\"edit.php?id=$row[id]\"> Edit </a></td>";
+                    echo "<td><a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete this book?')\">Delete</a></td>";
+                }
+                ?>
                 </tbody>
             </table>
         <div>
