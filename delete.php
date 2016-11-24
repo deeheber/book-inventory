@@ -1,6 +1,13 @@
 <?php
     include("connect.php");
-    $id = $_GET['id'];
-    $books = mysqli_query($mysqli, "DELETE FROM books WHERE id=$id");
+    
+    try {
+        $id = $_GET['id'];
+        $result = $db->query("DELETE FROM books WHERE id=$id");
+    } catch (Exception $e) {
+        echo "Unable to delete book, error in the db.";
+        exit;
+    }
+
     header("Location:index.php");
 ?>

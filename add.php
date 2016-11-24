@@ -48,10 +48,14 @@
             }
             
         } else { 
-
-            $result = mysqli_query($mysqli, "INSERT INTO books(title, author, year) VALUES('$title','$author','$year')");
-            
-            echo "<p style='color:lime;'>Book added successfully!</p>";
+            // add the book
+            try {
+                $result = $db->query("INSERT INTO books(title, author, year) VALUES('$title','$author','$year')");
+                echo "<p style='color:lime;'>Book added successfully!</p>";
+            } catch (Exception $e) {
+                echo "Unable to add book, error in the db.";
+                exit;
+            }
         }
     } 
 ?>
