@@ -25,7 +25,8 @@
             try {
                 $result = $db->query("UPDATE books SET title='$title',author='$author',year='$year' WHERE id=$id");
             } catch (Exception $e) {
-                echo "Unable to update book, error in db.";
+                echo "Unable to update book, error in db. </br>";
+                echo "Error: ".$e->getMessage()."</br>";
                 exit;
             }
             // redirect to index on successful update
@@ -40,7 +41,8 @@
         $id = $_GET['id'];
         $result = $db->query("SELECT * FROM books WHERE id=$id");
     } catch (Exception $e) {
-        echo "Unable to retrieve item, error in the db.";
+        echo "Unable to retrieve item. </br>";
+        echo "Error: ".$e->getMessage()."</br>";
         exit;
     }
 

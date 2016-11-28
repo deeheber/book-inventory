@@ -3,9 +3,9 @@
 
     try {
         $result = $db->query("SELECT * FROM books ORDER BY id DESC");
-        // echo "retrieved results";
     } catch (Exception $e) {
-        echo "Unable to retrieve books, error in db.";
+        echo "Unable to retrieve books. </br>";
+        echo "Error: ".$e->getMessage()."</br>";
         exit;
     }
 

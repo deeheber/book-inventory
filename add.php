@@ -53,7 +53,9 @@
                 $result = $db->query("INSERT INTO books(title, author, year) VALUES('$title','$author','$year')");
                 echo "<p style='color:lime;'>Book added successfully!</p>";
             } catch (Exception $e) {
-                echo "Unable to add book, error in the db.";
+                echo "<p><a href=\"index.php\">View Books</a></p>";
+                echo "Unable to add book, error in db. </br>";
+                echo "Error: ".$e->getMessage()."</br>";
                 exit;
             }
         }
