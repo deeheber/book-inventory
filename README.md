@@ -20,6 +20,9 @@ This is a simple [PHP](http://www.php.net/) application that tracks and stores i
  _Note: you might also have to set up the database called test and create a books table in that db if requests aren't working. This can be done in PHPmyadmin link can be found on the launch page that opens in your browser after starting the servers from MAMP_
  
  _Note: users on Windows or Linux can ignore the above directions and download [XAMPP](https://www.apachefriends.org/index.html) instead. Not sure of the specific setup, but they probably have good docs?_
- 
+
+## Prefer a SQLite db instead?
+See the instructions and code [here](https://github.com/deeheber/book-inventory/tree/master) for more details
+
 ## Coming soon
 Check out the [issues](https://github.com/deeheber/book-inventory/issues) to see new features and improvments
