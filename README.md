@@ -3,6 +3,8 @@
 ## Summary
 This is a simple [PHP](http://www.php.net/) application that tracks and stores information about books in a [MySQL](http://www.mysql.com/) database.
 
+Working prototype deployed on Heroku using their JawsDB MySQL add-on [here](https://book-tracking.herokuapp.com/index.php)
+
 ## Features
 - Read and display all books in the database
 - Create a new book
