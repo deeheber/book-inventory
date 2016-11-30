@@ -4,7 +4,10 @@
     // get current book info to display in the initial input values
     try {
         $id = $_GET['id'];
-        $result = $db->query("SELECT * FROM books WHERE id=$id");
+        $sql = "SELECT * FROM books WHERE id=?";
+        $result = $db->prepare($sql);
+        $result->bindValue(1, $id, PDO::PARAM_INT);
+        $result->execute();
     } catch (Exception $e) {
         $message = "<p style='color:#FFC107;'>Error: " . $e->getMessage() . "</p>";
         exit;
