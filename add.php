@@ -1,6 +1,32 @@
 <?php
-    include("connect.php");
+    $title = $author = $year = '';
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
+        $author = trim(filter_input(INPUT_POST, 'author', FILTER_SANITIZE_STRING));
+        $year = trim(filter_input(INPUT_POST, 'year', FILTER_SANITIZE_NUMBER_INT));
+
+        if(empty($title) || empty($author) || empty($year)){
+            $message = "<p style='color:#FFC107;'>Please fill out all fields.</p>";
+        } else {
+            include("connect.php");
+            $sql = 'INSERT into books(title, author, year) VALUES(?, ?, ?)';
+
+            try {
+                $results = $db->prepare($sql);
+                $results->bindValue(1, $title, PDO::PARAM_STR);
+                $results->bindValue(2, $author, PDO::PARAM_STR);
+                $results->bindValue(3, $year, PDO::PARAM_INT);
+                $results->execute();
+                $message = "<p style='color:lime;'>Book added successfully!</p>";
+                $title = $author = $year = '';
+            } catch(Exception $e){
+                $message = "<p style='color:#FFC107;'>Error: " . $e->getMessage() . "</p>";
+            }
+        }
+    } 
 ?>
+
 <html>
     <head>
         <title>Add Book</title>
@@ -14,53 +40,19 @@
                 <h2>Add New Book</h2>
                 Title
                     </br>
-                <input type="text" name="title"/>
+                <input type="text" name="title" value="<?php echo htmlspecialchars($title)?>"/>
                     </br>
                 Author
                     </br>
-                <input type="text" name="author"/>
+                <input type="text" name="author" value="<?php echo htmlspecialchars($author)?>"/>
                     </br>
                 Year
                     </br>
-                <input type="number" name="year"/>
+                <input type="number" name="year" value="<?php echo htmlspecialchars($year)?>"/>
                     </br>
                 <button type="submit" name="Submit">Submit</button>
+                <?php if(isset($message)){ echo "$message";} ?>
             </form>
-<?php 
-    if(isset($_POST['Submit'])) {	
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $year = $_POST['year'];
-            
-        // form validation --- no empty fields
-        if(empty($title) || empty($author) || empty($year)) {
-                    
-            if(empty($title)) {
-                echo "<p style='color:#FFC107;'>Title is required</p>";
-            }
-            
-            if(empty($author)) {
-                echo "<p style='color:#FFC107;'>Author is required</p>";
-            }
-            
-            if(empty($year)) {
-                echo "<p style='color:#FFC107'>Year is required</p>";
-            }
-            
-        } else { 
-            // add the book
-            try {
-                $result = $db->query("INSERT INTO books(title, author, year) VALUES('$title','$author','$year')");
-                echo "<p style='color:lime;'>Book added successfully!</p>";
-            } catch (Exception $e) {
-                echo "<p><a href=\"index.php\">View Books</a></p>";
-                echo "Unable to add book, error in db. </br>";
-                echo "Error: ".$e->getMessage()."</br>";
-                exit;
-            }
-        }
-    } 
-?>
         <p><a href="index.php">View Books</a></p>
         </div>
     </body>
