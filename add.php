@@ -22,6 +22,7 @@
                 $title = $author = $year = '';
             } catch(Exception $e){
                 $message = "<p style='color:#FFC107;'>Error: " . $e->getMessage() . "</p>";
+                exit;
             }
         }
     } 
@@ -50,7 +51,7 @@
                     </br>
                 <input type="number" name="year" value="<?php echo htmlspecialchars($year)?>"/>
                     </br>
-                <button type="submit" name="Submit">Submit</button>
+                <button type="submit">Submit</button>
                 <?php if(isset($message)){ echo "$message";} ?>
             </form>
         <p><a href="index.php">View Books</a></p>
