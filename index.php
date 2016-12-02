@@ -8,8 +8,6 @@
         echo "Error: ".$e->getMessage()."</br>";
         exit;
     }
-
-// var_dump($results->fetchAll(PDO::FETCH_ASSOC));
 ?>
 <html>
     <head>

@@ -41,15 +41,15 @@
                 <h2>Add New Book</h2>
                 Title
                     </br>
-                <input type="text" name="title" value="<?php echo htmlspecialchars($title)?>"/>
+                <input type="text" name="title" value="<?php echo $title; ?>"/>
                     </br>
                 Author
                     </br>
-                <input type="text" name="author" value="<?php echo htmlspecialchars($author)?>"/>
+                <input type="text" name="author" value="<?php echo $author; ?>"/>
                     </br>
                 Year
                     </br>
-                <input type="number" name="year" value="<?php echo htmlspecialchars($year)?>"/>
+                <input type="number" name="year" value="<?php echo $year; ?>"/>
                     </br>
                 <button type="submit">Submit</button>
                 <?php if(isset($message)){ echo "$message";} ?>
