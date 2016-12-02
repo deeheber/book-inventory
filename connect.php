@@ -1,16 +1,15 @@
 <?php
-    $databaseHost = 'localhost';
-    $databaseName = 'test';
-    $databaseUsername = 'root';
-    $databasePassword = 'root';
+    $url = getenv('JAWSDB_URL');
+    $dbparts = parse_url($url);
 
-try {
-    $db = new PDO("sqlite:".__DIR__."/test.db");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $e) {
-    echo "Unable to connect to database<br/>";
-    echo $e->getMessage();
-    exit;
-}
+    $hostname = $dbparts['host'];
+    $username = $dbparts['user'];
+    $password = $dbparts['pass'];
+    $database = ltrim($dbparts['path'],'/');
 
-// echo "Connected to the database";
+    try {
+        $db = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e){
+        echo "Connection failed: " . $e->getMessage();
+    }
