@@ -3,7 +3,7 @@
 
     // get current book info to display in the initial input values
     try {
-        $id = $_GET['id'];
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         $sql = "SELECT * FROM books WHERE id=?";
         $result = $db->prepare($sql);
         $result->bindValue(1, $id, PDO::PARAM_INT);
@@ -17,13 +17,14 @@
         $title = $res['title'];
         $author = $res['author'];
         $year = $res['year'];
+        $id = $res['id'];
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
         $author = trim(filter_input(INPUT_POST, 'author', FILTER_SANITIZE_STRING));
         $year = trim(filter_input(INPUT_POST, 'year', FILTER_SANITIZE_NUMBER_INT));
-        $id = trim(filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT));
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
             
         if(empty($title) || empty($author) || empty($year)){
             $message = "<p style='color:#FFC107;'>Please fill out all fields.</p>";
@@ -69,7 +70,7 @@
                     </br>
                 <input type="number" name="year" value="<?php echo $year; ?>"/>
                     </br>
-                <input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
+                <input type="hidden" name="id" value=<?php echo $id; ?>>
                 <button type="submit">Submit</button>
             </form>
             <!--Error messages for empty fields-->
