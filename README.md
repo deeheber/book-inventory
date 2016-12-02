@@ -24,7 +24,7 @@ Working prototype deployed on Heroku using their JawsDB MySQL add-on [here](http
  _Note: Users on Windows or Linux can ignore the above MAMP directions and download [XAMPP](https://www.apachefriends.org/index.html) instead. Not sure of the specific setup, but they probably have good docs?_
  
 ## Want to use a MySQL db instead?
-- Take a look at the code on [this](https://github.com/deeheber/book-inventory/tree/heroku2) branch.
+- Take a look at the code on [this](https://github.com/deeheber/book-inventory/tree/heroku) branch.
 - A local MySQL db instance will run through MAMP if you're on a Mac.
  
 ## Coming soon
