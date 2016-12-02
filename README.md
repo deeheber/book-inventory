@@ -1,7 +1,7 @@
 # Book inventory app
 
 ## Summary
-This is a simple [PHP](http://www.php.net/) application that tracks and stores information about books in a [SQLite](https://sqlite.org/) database.
+This is a simple [PHP](http://www.php.net/) application that tracks and stores information about books in a [MySQL](http://www.mysql.com/) database.
 
 Working prototype deployed on Heroku using their JawsDB MySQL add-on [here](https://book-tracking.herokuapp.com/index.php)
 
@@ -19,13 +19,12 @@ Working prototype deployed on Heroku using their JawsDB MySQL add-on [here](http
 5. click on `start servers`
 6. navigate to `localhost:8888` in a web browser
 
- _Note: You will also need to set up your local SQLite database. See official docs [here](https://www.sqlite.org/cli.html). Unless you change my code, you'll need to name the database `test` and create a `books` table in that db._
+ _Note: you might also have to set up the database called test and create a books table in that db if requests aren't working. This can be done in PHPmyadmin link can be found on the launch page that opens in your browser after starting the servers from MAMP. Also update the connection details in `connect.php` to reflect your $hostname (usually 'localhost'), $username(usually 'root'), $password(usually 'root'), and $database('test')._
  
- _Note: Users on Windows or Linux can ignore the above MAMP directions and download [XAMPP](https://www.apachefriends.org/index.html) instead. Not sure of the specific setup, but they probably have good docs?_
+ _Note: users on Windows or Linux can ignore the above directions and download [XAMPP](https://www.apachefriends.org/index.html) instead. Not sure of the specific setup, but they probably have good docs?_
  
-## Want to use a MySQL db instead?
-- Take a look at the code on [this](https://github.com/deeheber/book-inventory/tree/heroku2) branch.
-- A local MySQL db instance will run through MAMP if you're on a Mac.
+## Prefer a SQLite db instead?
+See the instructions and code [here](https://github.com/deeheber/book-inventory/tree/master) for more details
  
 ## Coming soon
 Check out the [issues](https://github.com/deeheber/book-inventory/issues) to see new features and improvments
