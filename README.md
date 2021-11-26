@@ -1,9 +1,9 @@
 # Book inventory app
 
-## Summary
-This is a simple [PHP](http://www.php.net/) application that tracks and stores information about books in a [SQLite](https://sqlite.org/) database.
+**Note this repo is archived and won't be receiving updates, so code might be out of date with current conventions. Keeping this around as a reminder of how far I've come.**
 
-Working prototype deployed on Heroku using their JawsDB MySQL add-on [here](https://book-tracking.herokuapp.com/index.php)
+## Summary
+This is a minimal [PHP](http://www.php.net/) application that tracks and stores information about books in a [SQLite](https://sqlite.org/) database.
 
 ## Features
 - Read and display all books in the database
@@ -26,6 +26,3 @@ Working prototype deployed on Heroku using their JawsDB MySQL add-on [here](http
 ## Want to use a MySQL db instead?
 - Take a look at the code on [this](https://github.com/deeheber/book-inventory/tree/heroku) branch.
 - A local MySQL db instance will run through MAMP if you're on a Mac.
- 
-## Coming soon
-Check out the [issues](https://github.com/deeheber/book-inventory/issues) to see new features and improvments
